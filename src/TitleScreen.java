@@ -3,6 +3,7 @@
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 
 public class TitleScreen extends Screen
 {
@@ -34,12 +36,12 @@ public class TitleScreen extends Screen
     
     public static void setupFrame()
     {
-        titleFrame = createFrame("ChessÂ²");
+        titleFrame = createFrame("Chess²");
         
         JButton newGameButton = createButton("New Game", new NewGameListener());
         JButton exitButton = createButton("Exit", new ExitListener());
         
-        JLabel title = new JLabel("ChessÂ²");
+        JLabel title = new JLabel("Chess²");
         title.setFont(new Font("Serif", Font.ITALIC, FONT_SIZE));
         
         JPanel titlePanel = new JPanel();

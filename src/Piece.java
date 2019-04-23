@@ -13,12 +13,15 @@ public class Piece
     protected boolean hasMoved = false;
     public int value = 0;
     public ArrayList<Piece> enpassantCaptures = new ArrayList<>();
+    public int blackpieceSize = 16;//C
+    public int whitepieceSize = 16;
     
     public Piece(Color color, ChessBlock startingPosition)
     {
          this.color = color;
          this.startingPosition = startingPosition;
          currentPosition = startingPosition;
+         
     }
     
     public void move(ChessBlock position)

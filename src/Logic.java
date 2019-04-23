@@ -33,6 +33,7 @@ public class Logic
             movesAndCaptures = getPossibleKingMovesAndCaptures(board, block, dangerousBlocksForWhite, dangerousBlocksForBlack);
         }
         
+        
         return movesAndCaptures;
     }
     
@@ -1111,4 +1112,5 @@ public class Logic
         
         return dangerousBlocks;
     }
+    
 }

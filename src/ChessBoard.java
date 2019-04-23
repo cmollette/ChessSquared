@@ -760,6 +760,21 @@ public class ChessBoard extends Screen
                 }
             }
         }
+	    if(possibleWhiteMoves.size() == 1)//C. Hope this ends game for white if only king is left. Works, sometimes.
+	    {
+	    	tools.removeAll();
+	    	message = new JLabel("White King is last white piece standing, Black wins!");
+	    	updateGUI();
+ 	
+	    	gameOver = true;
+	    	for (int y = 0; y < 8; y++)
+	    	{
+	    		for (int x = 0; x < 8; x++)
+	    		{
+	    			board[x][y].setWinnerButtonColor(gameOver, Color.BLACK);
+	    		}
+	    	}
+	    }
     }
     
     private void setBlackKingInCheck()
@@ -795,6 +810,21 @@ public class ChessBoard extends Screen
             updateGUI();
             
             gameOver = true;
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    board[x][y].setWinnerButtonColor(gameOver, Color.WHITE);
+                }
+            }
+        }
+        if(possibleBlackMoves.size() == 1)//C. Hope this ends game for black if only king is left. Sometimes works.
+        {
+        	tools.removeAll();
+        	message = new JLabel("White King is last white piece standing, White wins!");
+        	updateGUI();
+        	
+        	gameOver = true;
             for (int y = 0; y < 8; y++)
             {
                 for (int x = 0; x < 8; x++)
@@ -863,22 +893,22 @@ public class ChessBoard extends Screen
         public void actionPerformed(ActionEvent e)
         {
             JOptionPane.showMessageDialog(frame, "The standard rules of Chess are as "
-                    + "follows:\n       • Eight white/black Pawns (a2-h2),"
+                    + "follows:\n Eight white/black Pawns (a2-h2),"
                     + " two white/black Bishops (c1 and f1),\n two white/black "
                     + "Knights (b1 and g1), two white/black Rooks (a1 and h1), \n "
                     + "one white/black Queen (d1), and one white/black King (e1).\n"
-                    + "       • Pawns move one block forward at a time, and cannot go backward "
+                    + "Pawns move one block forward at a time, and cannot go backward "
                     + "(on first move it can advance \n two spaces forward).\n       "
-                    + "• Bishops move back and forth diagonally.\n       • Knights move back "
-                    + "and forth in an “L” shape.\n       • Rooks move back and forth, "
-                    + "left and right, but not diagonally.\n       • Queens move back "
-                    + "and forth, left and right, and diagonally.\n       • Kings move back and "
+                    + "• Bishops move back and forth diagonally.\n Knights move back "
+                    + "and forth in an shape.\n Rooks move back and forth, "
+                    + "left and right, but not diagonally.\n Queens move back "
+                    + "and forth, left and right, and diagonally.\n Kings move back and "
                     + "forth, left and right, and diagonally, but only one space "
-                    + "at a time.\n       • Whoever plays as White always go first. "
-                    + "\n       • To win, one player must put their opponent in “checkmate”."
-                    + "\n       • Checkmate occurs when one player puts the enemy"
-                    + "king in “check” and the player whose king is in check\ncannot avoid getting "
-                    + "their king out of “check” within the next move.\n       • Check happens when you "
+                    + "at a time.\n Whoever plays as White always go first. "
+                    + "\n To win, one player must put their opponent in checkmate."
+                    + "\n Checkmate occurs when one player puts the enemy"
+                    + "king in check and the player whose king is in check\ncannot avoid getting "
+                    + "their king out of check within the next move.\n Check happens when you "
                     + "can capture the enemy king on your next turn with one of your pieces.");
         }
     }

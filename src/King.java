@@ -25,4 +25,5 @@ public class King extends Piece
             return new ImageIcon("Black_King.png");
         }
     }
+    
 }
